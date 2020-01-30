@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using PlotlangConverter.TokenDefinitions;
+
 namespace PlotlangConverter.SvgFrontend
 {
     static class SymbolTable
@@ -26,13 +28,3 @@ namespace PlotlangConverter.SvgFrontend
         }
     }
 
-    interface IToken
-    {
-
-    }
-
-    internal class RectangleToken : IToken
-    {
-
-    }
-}

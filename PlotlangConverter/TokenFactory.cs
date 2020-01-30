@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 using PlotlangConverter.TokenDefinitions;
 
-namespace PlotlangConverter.SvgFrontend
+namespace PlotlangConverter
 {
-    static class SvgParser
+    class TokenFactory
     {
-        public static void Parse(IToken token)
-        {
-
-        }
     }
 }
