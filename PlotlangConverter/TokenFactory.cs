@@ -8,7 +8,8 @@ using PlotlangConverter.TokenDefinitions;
 
 namespace PlotlangConverter
 {
-    class TokenFactory
+    public class TokenFactory
     {
+
     }
 }

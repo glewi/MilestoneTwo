@@ -27,4 +27,4 @@ namespace PlotlangConverter.SvgFrontend
             throw new NotImplementedException();
         }
     }
-
+}
