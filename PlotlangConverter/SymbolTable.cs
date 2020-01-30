@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 using PlotlangConverter.TokenDefinitions;
 
-namespace PlotlangConverter.SvgFrontend
+namespace PlotlangConverter
 {
-    static class SymbolTable
+    public static class SymbolTable
     {
         public enum TokenTypes
         {
@@ -20,7 +20,9 @@ namespace PlotlangConverter.SvgFrontend
 
         public static IToken GetToken(TokenTypes identifier)
         {
-            return (IToken)Activator.CreateInstance(symbolMap[(uint)identifier]);
+            throw new NotImplementedException();
+            
+            //return (IToken)Activator.CreateInstance(symbolMap[(uint)identifier]);
         }
 
         public static void AddToken(uint identifier, IToken token)

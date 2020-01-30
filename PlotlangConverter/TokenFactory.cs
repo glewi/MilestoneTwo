@@ -14,7 +14,6 @@ namespace PlotlangConverter
         {
             switch(identifier)
             {
-                case
                 default:
                     throw new NotImplementedException();
             }

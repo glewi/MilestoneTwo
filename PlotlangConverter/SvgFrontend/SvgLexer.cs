@@ -13,7 +13,7 @@ namespace PlotlangConverter.SvgFrontend
        public static IToken Lex(string statement)
        {
             TokenFactory tokenFactory = new TokenFactory();
-            tokenFactory.
+            
             
             throw new NotImplementedException();
        }
