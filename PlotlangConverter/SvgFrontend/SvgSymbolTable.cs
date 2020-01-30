@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace PlotlangConverter.SvgFrontend
 {
-    class SvgSymbolTable
+    static class SvgSymbolTable
     {
-        private Dictionary<string, IToken> symbolMap = new Dictionary<string, IToken>();
+        private static Dictionary<string, IToken> symbolMap = new Dictionary<string, IToken>();
 
-        public IToken GetToken(string identifier)
+        public static IToken GetToken(string identifier)
         {
             throw new NotImplementedException();
         }
 
-        public void AddToken(string identifier, IToken token)
+        public static void AddToken(string identifier, IToken token)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveToken(string identifier)
+        public static void RemoveToken(string identifier)
         {
             throw new NotImplementedException();
         }
     }
 
-    internal interface IToken
+    interface IToken
     {
 
     }

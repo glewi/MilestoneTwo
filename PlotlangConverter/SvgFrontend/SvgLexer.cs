@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace PlotlangConverter.SvgFrontend
 {
-    class SvgLexer
+    static class SvgLexer
     {
-
+       static IToken Lex(string line)
+       {
+            throw new NotImplementedException();
+       }
     }
 }
