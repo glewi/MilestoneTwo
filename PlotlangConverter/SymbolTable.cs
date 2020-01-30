@@ -10,21 +10,27 @@ namespace PlotlangConverter.SvgFrontend
 {
     static class SymbolTable
     {
-        private static Dictionary<string, IToken> symbolMap = new Dictionary<string, IToken>();
-
-        public static IToken GetToken(string identifier)
+        public enum TokenTypes
         {
-            throw new NotImplementedException();
+            Circle,
+            Rectangle
         }
 
-        public static void AddToken(string identifier, IToken token)
+        private static Dictionary<uint, Type> symbolMap = new Dictionary<uint, Type>();
+
+        public static IToken GetToken(TokenTypes identifier)
         {
-            throw new NotImplementedException();
+            return (IToken)Activator.CreateInstance(symbolMap[(uint)identifier]);
         }
 
-        public static void RemoveToken(string identifier)
+        public static void AddToken(uint identifier, IToken token)
         {
-            throw new NotImplementedException();
+            symbolMap.Add(identifier, typeof(IToken));
+        }
+
+        public static void RemoveToken(uint identifier)
+        {
+            symbolMap.Remove(identifier);
         }
     }
 }

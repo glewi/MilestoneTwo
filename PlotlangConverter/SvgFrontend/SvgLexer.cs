@@ -12,12 +12,10 @@ namespace PlotlangConverter.SvgFrontend
     {
        public static IToken Lex(string statement)
        {
-            IToken token = new RectangleToken();
+            TokenFactory tokenFactory = new TokenFactory();
+            tokenFactory.
             
-
-
-            return token;
-
+            throw new NotImplementedException();
        }
     }
 }

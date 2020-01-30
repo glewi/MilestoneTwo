@@ -10,6 +10,14 @@ namespace PlotlangConverter
 {
     public class TokenFactory
     {
-
+        public IToken CreateToken(string identifier)
+        {
+            switch(identifier)
+            {
+                case
+                default:
+                    throw new NotImplementedException();
+            }
+        }
     }
 }
