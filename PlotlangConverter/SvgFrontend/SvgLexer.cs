@@ -8,9 +8,12 @@ namespace PlotlangConverter.SvgFrontend
 {
     static class SvgLexer
     {
-       static IToken Lex(string line)
+        public static IToken Lex(string line)
        {
-            throw new NotImplementedException();
+            IToken token = new RectangleToken();
+            
+            return token;
+
        }
     }
 }

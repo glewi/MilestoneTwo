@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlotlangConverter.SvgFrontend
 {
-    static class SvgSymbolTable
+    static class SymbolTable
     {
         private static Dictionary<string, IToken> symbolMap = new Dictionary<string, IToken>();
 

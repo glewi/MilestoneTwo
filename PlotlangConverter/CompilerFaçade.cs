@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlotlangConverter.SvgFrontend
+namespace PlotlangConverter
 {
-    static class SvgParser
+    class CompilerFaçade
     {
-        public static void Parse(IToken token)
+        public void Compile(string @input, string @output)
         {
 
         }
