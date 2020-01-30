@@ -9,7 +9,7 @@ namespace PlotlangConverter
     class Program
     {
         static void Main(string[] args)
-        {
+        {   
             try
             {
                 if (args.Length == 2)
@@ -19,14 +19,14 @@ namespace PlotlangConverter
 
                     CompilerFaçade.Compile(inputpath, outputpath);
                 }
-                else;
+                else
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentException("Argument exception");
                 }
             }
             catch (ArgumentException e)
             {
-                Console.WriteLine("Error: {0}", e.ToString());
+                Console.WriteLine(e.Message.ToString());
             }
             
             Console.ReadKey();
