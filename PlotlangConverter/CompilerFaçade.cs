@@ -8,7 +8,7 @@ namespace PlotlangConverter
 {
     class CompilerFaçade
     {
-        public void Compile(string @input, string @output)
+        public static void Compile(string @input, string @output)
         {
 
         }
