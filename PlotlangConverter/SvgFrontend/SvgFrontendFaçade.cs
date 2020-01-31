@@ -8,6 +8,8 @@ namespace PlotlangConverter.SvgFrontend
 {
     class SvgFrontendFaçade
     {
+        
+
 
     }
 }

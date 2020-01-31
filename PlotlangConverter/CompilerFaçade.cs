@@ -11,9 +11,11 @@ namespace PlotlangConverter
 {
     static class CompilerFaçade
     {
+        private static SvgFrontendFaçade svg = new SvgFrontendFaçade();
+        
         public static void Compile(string @input, string @output)
         {
-            
+            SvgReader.ReadFileLINQ(input);
         }
     }
 }

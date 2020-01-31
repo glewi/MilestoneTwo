@@ -14,6 +14,8 @@ namespace PlotlangConverter.SvgFrontend
 
         public static IToken Lex(string statement)
         {
+            
+            
             return factory.CreateToken(0);
             //throw new NotImplementedException();
         }
