@@ -15,8 +15,7 @@ namespace PlotlangConverter.TokenDefinitions
     internal class RectangleToken : IToken
     {
         // XY coords for the bottom left corner of the rectangle.
-        int x { get; set; } = 0;
-        int y { get; set; } = 0;
+        Tuple<int, int> xy { get; set; } = new Tuple<int, int>(0,0);
 
         // Rectangle dimensions.
         uint width { get; set; } = 0;
