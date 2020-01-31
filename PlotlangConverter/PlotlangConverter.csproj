@@ -53,6 +53,7 @@
     <Compile Include="CompilerFaçade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SvgFrontend\SvgFrontendFaçade.cs" />
     <Compile Include="SvgFrontend\SvgLexer.cs" />
     <Compile Include="SvgFrontend\SvgParser.cs" />
     <Compile Include="SvgFrontend\SvgReader.cs" />

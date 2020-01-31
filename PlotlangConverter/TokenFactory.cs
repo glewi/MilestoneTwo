@@ -10,10 +10,20 @@ namespace PlotlangConverter
 {
     public class TokenFactory
     {
-        public IToken CreateToken(string identifier)
+        private enum TokenTypes
+        {
+            Circle,
+            Rectangle
+        }
+
+        public IToken CreateToken(uint identifier)
         {
             switch(identifier)
             {
+                case (uint)TokenTypes.Circle:
+                    return new CircleToken();
+                case (uint)TokenTypes.Rectangle:
+                    return new RectangleToken();
                 default:
                     throw new NotImplementedException();
             }

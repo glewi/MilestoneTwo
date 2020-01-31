@@ -8,14 +8,14 @@ using PlotlangConverter.TokenDefinitions;
 
 namespace PlotlangConverter.SvgFrontend
 {
-    static class SvgLexer
+    public static class SvgLexer
     {
-       public static IToken Lex(string statement)
-       {
-            TokenFactory tokenFactory = new TokenFactory();
-            
-            
-            throw new NotImplementedException();
-       }
+        private static TokenFactory factory = new TokenFactory();
+
+        public static IToken Lex(string statement)
+        {
+            return factory.CreateToken(0);
+            //throw new NotImplementedException();
+        }
     }
 }

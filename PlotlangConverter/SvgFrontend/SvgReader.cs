@@ -13,8 +13,6 @@ namespace PlotlangConverter.SvgFrontend
     {
         public static void ReadFile(string @path)
         {
-            string statement = null;
-            
             XDocument document = XDocument.Load(@path);
             IEnumerable<XElement> xml =
                 from element in document.Root.Descendants()
@@ -22,9 +20,7 @@ namespace PlotlangConverter.SvgFrontend
 
             foreach (XElement element in xml)
             {
-                statement = element.ToString();
-                IToken token = SvgLexer.Lex(statement);
-                SvgParser.Parse(token);
+                Console.WriteLine(element.ToString());
             }
         }
     }
