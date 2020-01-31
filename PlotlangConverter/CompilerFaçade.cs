@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 using PlotlangConverter.SvgFrontend;
 using PlotlangConverter.TokenDefinitions;
@@ -15,7 +16,8 @@ namespace PlotlangConverter
         
         public static void Compile(string @input, string @output)
         {
-            SvgReader.ReadFileLINQ(input);
+            List<XElement> prog = SvgReader.ReadFileLINQ(input);            
+            SvgLexer.Lex(prog);
         }
     }
 }

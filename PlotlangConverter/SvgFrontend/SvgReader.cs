@@ -25,7 +25,22 @@ namespace PlotlangConverter.SvgFrontend
                 from element in document.Root.Descendants()
                 select element;
 
-            List<XElement> list = new List<XElement>();
+            List<XElement> list = new List<XElement>(xml);
+
+            foreach(XElement e in list)
+            {
+                Console.WriteLine(e.Name.LocalName);
+            }
+
+            var a = xml.Attributes();
+            var array = a.ToArray();
+
+            foreach (XAttribute attribute in array)
+            {
+                Console.WriteLine(attribute);
+                Console.WriteLine(attribute.Value);
+                Console.WriteLine(attribute.Name);
+            }
 
             foreach (XElement element in xml)
             {
