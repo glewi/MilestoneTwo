@@ -9,7 +9,7 @@ using PlotlangConverter.TokenDefinitions;
 
 namespace PlotlangConverter.SvgFrontend
 {
-    public static class SvgLexer
+    public static class TinySvgLexer
     {
         private static TokenFactory factory = new TokenFactory();
 

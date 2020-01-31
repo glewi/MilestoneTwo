@@ -12,12 +12,12 @@ namespace PlotlangConverter
 {
     static class CompilerFaçade
     {
-        private static SvgFrontendFaçade svg = new SvgFrontendFaçade();
+        private static TinySvgFrontendFaçade svg = new TinySvgFrontendFaçade();
         
         public static void Compile(string @input, string @output)
         {
-            List<XElement> prog = SvgReader.ReadFileLINQ(input);            
-            SvgLexer.Lex(prog);
+            List<XElement> prog = TinySvgReader.ReadFileLINQ(input);            
+            TinySvgLexer.Lex(prog);
         }
     }
 }

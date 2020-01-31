@@ -8,7 +8,7 @@ using PlotlangConverter.TokenDefinitions;
 
 namespace PlotlangConverter.SvgFrontend
 {
-    static class SvgParser
+    static class TinySvgParser
     {
         public static void Parse(IToken token)
         {

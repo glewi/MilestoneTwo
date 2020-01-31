@@ -10,7 +10,7 @@ using PlotlangConverter.TokenDefinitions;
 
 namespace PlotlangConverter.SvgFrontend
 {
-    public static class SvgReader
+    public static class TinySvgReader
     {
         // Adding this as an experiment.
         public static void ReadFileSerializer(string @path)

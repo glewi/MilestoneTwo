@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlotlangConverter.SvgFrontend
 {
-    class SvgFrontendFaçade
+    class TinySvgFrontendFaçade
     {
         
 
