@@ -8,21 +8,10 @@ using PlotlangConverter.TokenDefinitions;
 
 namespace PlotlangConverter
 {   
-    class Rect : IToken
-    {
-
-    }
-    
     class Program
     {
         static void Main(string[] args)
         {
-            Rect token = new Rect();
-            
-            SymbolTable.AddToken(0, token);
-            var obj = SymbolTable.GetToken(0);
-            Console.WriteLine(obj.ToString());
-            
             try
             {
                 if (args.Length == 2)

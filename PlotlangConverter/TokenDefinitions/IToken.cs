@@ -26,4 +26,9 @@ namespace PlotlangConverter.TokenDefinitions
         uint rx { get; set; } = 0;
         uint ry { get; set; } = 0;
     }
+
+    internal class CircleToken : IToken
+    {
+
+    }
 }

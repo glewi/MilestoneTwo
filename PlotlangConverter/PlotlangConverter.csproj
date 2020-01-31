@@ -56,7 +56,6 @@
     <Compile Include="SvgFrontend\SvgLexer.cs" />
     <Compile Include="SvgFrontend\SvgParser.cs" />
     <Compile Include="SvgFrontend\SvgReader.cs" />
-    <Compile Include="SymbolTable.cs" />
     <Compile Include="TokenDefinitions\IToken.cs" />
     <Compile Include="TokenFactory.cs" />
   </ItemGroup>
