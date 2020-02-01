@@ -13,17 +13,24 @@ namespace PlotlangConverter.SvgFrontend
     {
         private static TokenFactory factory = new TokenFactory();
 
+        public static IToken Lex(XElement element)
+        {
+            throw new NotImplementedException();
+        }
         
-
-        public static IToken Lex(List<XElement> prog)
+        public static IToken Lex(XElement[] prog)
         {
             foreach (XElement element in prog)
             {
-                Console.WriteLine(element.ToString());
+                Console.WriteLine(element.Name.LocalName);
+                XAttribute[] attributes = element.Attributes().ToArray();
+
+                foreach(XAttribute attribute in attributes)
+                {
+                    Console.WriteLine(attribute.ToString());
+                }
             }
-            
-            return factory.CreateToken(0);
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

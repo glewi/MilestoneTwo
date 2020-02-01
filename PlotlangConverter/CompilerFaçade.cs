@@ -16,7 +16,7 @@ namespace PlotlangConverter
         
         public static void Compile(string @input, string @output)
         {
-            List<XElement> prog = TinySvgReader.ReadFileLINQ(input);            
+            XElement[] prog = TinySvgReader.ReadFile(input);            
             TinySvgLexer.Lex(prog);
         }
     }

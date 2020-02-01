@@ -12,36 +12,15 @@ namespace PlotlangConverter.SvgFrontend
 {
     public static class TinySvgReader
     {
-        public static List<XElement> ReadFile(string @path)
+        public static XElement[] ReadFile(string @path)
         {
             XDocument document = XDocument.Load(@path);
             IEnumerable<XElement> xml =
                 from element in document.Root.Descendants()
                 select element;
 
-            List<XElement> list = new List<XElement>(xml);
-
-            foreach(XElement e in list)
-            {
-                Console.WriteLine(e.Name.LocalName);
-            }
-
-            var a = xml.Attributes();
-            var array = a.ToArray();
-
-            foreach (XAttribute attribute in array)
-            {
-                Console.WriteLine(attribute);
-                Console.WriteLine(attribute.Value);
-                Console.WriteLine(attribute.Name);
-            }
-
-            foreach (XElement element in xml)
-            {
-                list.Add(element);
-            }
-
-            return list;
+            XElement[] elements = xml.ToArray();
+            return elements;
         }
     }
 }
