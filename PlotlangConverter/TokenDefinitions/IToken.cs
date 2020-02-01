@@ -26,6 +26,10 @@ namespace PlotlangConverter.TokenDefinitions
 
     internal class CircleToken : IToken
     {
+        // XY coords for the center of the circle.
+        Tuple<int, int> xy { get; set; } = new Tuple<int, int>(0,0);
 
+        // Circle radius.
+        uint r { get; set; } = 0;
     }
 }
