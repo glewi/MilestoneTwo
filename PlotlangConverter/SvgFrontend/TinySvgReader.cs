@@ -12,13 +12,7 @@ namespace PlotlangConverter.SvgFrontend
 {
     public static class TinySvgReader
     {
-        // Adding this as an experiment.
-        public static void ReadFileSerializer(string @path)
-        {
-
-        }
-        
-        public static List<XElement> ReadFileLINQ(string @path)
+        public static List<XElement> ReadFile(string @path)
         {
             XDocument document = XDocument.Load(@path);
             IEnumerable<XElement> xml =
