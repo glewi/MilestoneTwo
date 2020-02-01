@@ -12,6 +12,7 @@ namespace PlotlangConverter.SvgFrontend
     public static class TinySvgLexer
     {
         private static TokenFactory factory = new TokenFactory();
+        
 
         public static IToken Lex(XElement element)
         {
