@@ -17,13 +17,11 @@ namespace PlotlangConverter.TokenDefinitions
         // XY coords for the bottom left corner of the rectangle.
         Tuple<int, int> xy { get; set; } = new Tuple<int, int>(0,0);
 
-        // Rectangle dimensions.
-        uint width { get; set; } = 0;
-        uint height { get; set; } = 0;
+        // XY values for rounded rectangles. 
+        Tuple<uint, uint> rxy { get; set; } = new Tuple<uint, uint>(0, 0);
 
-        // Only used for rounded rectangles.
-        uint rx { get; set; } = 0;
-        uint ry { get; set; } = 0;
+        // Rectangle width and height dimensions
+        Tuple<uint, uint> widthheight { get; set; } = new Tuple<uint, uint>(0,0);
     }
 
     internal class CircleToken : IToken
