@@ -31,6 +31,10 @@ namespace PlotlangConverter.SvgFrontend
                     Console.WriteLine(attribute.ToString());
                 }
             }
+
+            CircleToken token = new CircleToken();
+            token.r = 5;
+
             throw new NotImplementedException();
         }
     }
