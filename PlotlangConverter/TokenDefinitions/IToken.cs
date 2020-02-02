@@ -59,19 +59,32 @@ namespace PlotlangConverter.TokenDefinitions
     public class CircleToken : IToken
     {
         // XY coords for the center of the circle.
-        public Tuple<int, int> xy { get; } = new Tuple<int, int>(0,0);
+        Tuple<int, int> xy { get; set; }
 
         // Circle radius.
-        public uint r { get; } = 0;
+        uint r { get; } = 0;
+
+        public CircleToken(params object[] vs)
+        {
+            (int x, int y) = ((int)vs[0], (int)vs[1]);
+            uint r = Convert.ToUInt32(vs[0]);
+        }
 
         public object[] getParams()
         {
-            return null;
+            xy.Deconstruct(out int x, out int y);
+            uint r = this.r;
+
+            return new object[] { x, y, r};
         }
 
         public void setParams(params object[] vs)
         {
+            (int x, int y) = ((int)vs[0], (int)vs[1]);
+            uint r = Convert.ToUInt32(vs[0]);
 
+            xy = new Tuple<int, int>(x, y);
+            this.r = r;
         }
     }
 }

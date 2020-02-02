@@ -26,14 +26,19 @@ namespace PlotlangConverter.SvgFrontend
                 Console.WriteLine(element.Name.LocalName);
                 XAttribute[] attributes = element.Attributes().ToArray();
 
+
+
+
                 foreach(XAttribute attribute in attributes)
                 {
                     Console.WriteLine(attribute.ToString());
                 }
             }
 
-            var obj = new RectangleToken();
+            var obj = new RectangleToken(new object[] { 0,0,0,0,0,0 });
             obj.setParams(new object[] { 5,10,15,20,25,30 });
+            object[] p = obj.getParams();
+            Console.WriteLine(p.ToString());
 
             throw new NotImplementedException();
         }

@@ -16,14 +16,14 @@ namespace PlotlangConverter
             Rectangle
         }
 
-        public IToken CreateToken(uint identifier)
+        public IToken CreateToken(uint identifier, params object[] vs)
         {
             switch(identifier)
             {
                 case (uint)TokenTypes.Circle:
-                    return new CircleToken();
+                    return new CircleToken(vs);
                 case (uint)TokenTypes.Rectangle:
-                    return new RectangleToken();
+                    return new RectangleToken(vs);
                 default:
                     throw new NotImplementedException();
             }
