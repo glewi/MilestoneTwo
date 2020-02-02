@@ -16,29 +16,43 @@ namespace PlotlangConverter.TokenDefinitions
     public class RectangleToken : IToken
     {
         // XY coords for the bottom left corner of the rectangle.
-        Tuple<int, int> xy { get; }
+        Tuple<int, int> xy { get; set; }
 
         // XY values for rounded rectangles. 
-        Tuple<uint, uint> rxy { get; }
+        Tuple<uint, uint> rxy { get; set; }
 
         // Rectangle width and height dimensions
-        Tuple<uint, uint> widthheight { get; }
+        Tuple<uint, uint> widthheight { get; set; }
 
-        public RectangleToken(int x, int y, uint rx, uint ry, uint width, uint height)
+        public RectangleToken(params object[] vs)
         {
+            (int x, int y) = ((int)vs[0], (int)vs[1]);
+            (uint rx, uint ry) = (Convert.ToUInt32(vs[2]), Convert.ToUInt32(vs[3]));
+            (uint width, uint height) = (Convert.ToUInt32(vs[4]), Convert.ToUInt32(vs[5]));
+
             xy = new Tuple<int, int>(x, y);
             rxy = new Tuple<uint, uint>(rx, ry);
             widthheight = new Tuple<uint, uint>(width, height);
         }
 
-        object[] getParams()
+        public object[] getParams()
         {
-            return null;
+            xy.Deconstruct(out int x, out int y);
+            rxy.Deconstruct(out uint rx, out uint ry);
+            widthheight.Deconstruct(out uint width, out uint height);
+
+            return new object[] {x,y,rx,ry,width,height};
         }
         
-        void setParams(params object[] vs)
+        public void setParams(params object[] vs)
         {
+            (int x, int y) = ((int)vs[0], (int)vs[1]);
+            (uint rx, uint ry) = (Convert.ToUInt32(vs[2]), Convert.ToUInt32(vs[3]));
+            (uint width, uint height) = (Convert.ToUInt32(vs[4]), Convert.ToUInt32(vs[5]));
 
+            xy = new Tuple<int, int>(x,y);
+            rxy = new Tuple<uint, uint>(rx,ry);
+            widthheight = new Tuple<uint, uint>(width,height);
         }
     }
 
@@ -50,12 +64,12 @@ namespace PlotlangConverter.TokenDefinitions
         // Circle radius.
         public uint r { get; } = 0;
 
-        object[] getParams()
+        public object[] getParams()
         {
             return null;
         }
 
-        void setParams(params object[] vs)
+        public void setParams(params object[] vs)
         {
 
         }

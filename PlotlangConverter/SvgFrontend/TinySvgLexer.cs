@@ -32,8 +32,8 @@ namespace PlotlangConverter.SvgFrontend
                 }
             }
 
-            CircleToken token = new CircleToken();
-            token.r = 5;
+            var obj = new RectangleToken();
+            obj.setParams(new object[] { 5,10,15,20,25,30 });
 
             throw new NotImplementedException();
         }
