@@ -62,7 +62,7 @@ namespace PlotlangConverter.TokenDefinitions
         Tuple<int, int> xy { get; set; }
 
         // Circle radius.
-        uint r { get; } = 0;
+        uint r { get; set; } = 0;
 
         public CircleToken(params object[] vs)
         {
