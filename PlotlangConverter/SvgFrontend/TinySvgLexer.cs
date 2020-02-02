@@ -30,8 +30,7 @@ namespace PlotlangConverter.SvgFrontend
 
                 for (int i = 0; i < attributes.Length; i++)
                 {
-                    int value = int.Parse(attributes[i].Value);
-                    vs[i] = value;
+                    vs[i] = int.Parse(attributes[i].Value);
                 }
 
 
