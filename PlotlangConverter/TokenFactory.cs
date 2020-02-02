@@ -16,6 +16,11 @@ namespace PlotlangConverter
             Rectangle
         }
 
+        public IToken CreateRectangle()
+        {
+            return new RectangleToken();
+        }
+
         public IToken CreateToken(uint identifier)
         {
             switch(identifier)

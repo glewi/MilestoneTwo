@@ -9,27 +9,37 @@ namespace PlotlangConverter.TokenDefinitions
 
     public interface IToken
     {
-
+        void SetParams(params object[] parameterarray);
     }
 
     internal class RectangleToken : IToken
     {
         // XY coords for the bottom left corner of the rectangle.
-        Tuple<int, int> xy { get; } = new Tuple<int, int>(0,0);
+        public Tuple<int, int> xy { get; set; } = new Tuple<int, int>(0,0);
 
         // XY values for rounded rectangles. 
-        Tuple<uint, uint> rxy { get; } = new Tuple<uint, uint>(0, 0);
+        public Tuple<uint, uint> rxy { get; set; } = new Tuple<uint, uint>(0, 0);
 
         // Rectangle width and height dimensions
-        Tuple<uint, uint> widthheight { get; } = new Tuple<uint, uint>(0,0);
+        public Tuple<uint, uint> widthheight { get; set; } = new Tuple<uint, uint>(0,0);
+
+        public void SetParams(params object[] array)
+        {
+            array
+        }
     }
 
     internal class CircleToken : IToken
     {
         // XY coords for the center of the circle.
-        public Tuple<int, int> xy { get; } = new Tuple<int, int>(0,0);
+        public Tuple<int, int> xy { get; set; } = new Tuple<int, int>(0,0);
 
         // Circle radius.
-        public uint r { get; } = 0;
+        public uint r { get; set; } = 0;
+
+        public void SetParams(params object[] array)
+        {
+            array
+        }
     }
 }

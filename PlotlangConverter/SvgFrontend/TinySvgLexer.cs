@@ -21,21 +21,26 @@ namespace PlotlangConverter.SvgFrontend
         
         public static IToken Lex(XElement[] prog)
         {
+            IToken token = null;
+            
             foreach (XElement element in prog)
             {
                 Console.WriteLine(element.Name.LocalName);
                 XAttribute[] attributes = element.Attributes().ToArray();
 
+                if (element.Name.LocalName == "rect")
+                {
+                    token = factory.CreateRectangle();
+                }
+
                 foreach(XAttribute attribute in attributes)
                 {
                     Console.WriteLine(attribute.ToString());
+                    
                 }
             }
 
-            CircleToken token = new CircleToken();
-            token.r = 5;
-
-            throw new NotImplementedException();
+            return token;
         }
     }
 }
