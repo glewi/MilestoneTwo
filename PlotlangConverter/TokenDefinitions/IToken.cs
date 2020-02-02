@@ -81,7 +81,7 @@ namespace PlotlangConverter.TokenDefinitions
         public void setParams(params object[] vs)
         {
             (int x, int y) = ((int)vs[0], (int)vs[1]);
-            uint r = Convert.ToUInt32(vs[0]);
+            uint r = Convert.ToUInt32(vs[2]);
 
             xy = new Tuple<int, int>(x, y);
             this.r = r;
