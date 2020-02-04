@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PlotlangConverter.TokenDefinitions;
+using System;
 using System.Text.Json;
-
-using PlotlangConverter.TokenDefinitions;
 
 namespace PlotlangConverter.SvgFrontend
 {
@@ -13,7 +8,7 @@ namespace PlotlangConverter.SvgFrontend
     {
         public static void Parse(IToken token)
         {
-
+            Console.WriteLine(token.GetTokenID());
         }
     }
 }

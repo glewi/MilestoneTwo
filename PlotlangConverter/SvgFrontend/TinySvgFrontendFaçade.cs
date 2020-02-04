@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PlotlangConverter.SvgFrontend
+﻿namespace PlotlangConverter.SvgFrontend
 {
     class TinySvgFrontendFaçade
     {
-        
+
 
 
     }

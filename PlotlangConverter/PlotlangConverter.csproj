@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompilerFaçade.cs" />
+    <Compile Include="HpglBackend\IHpglToken.cs" />
     <Compile Include="IOHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
