@@ -2,7 +2,6 @@
 
 namespace PlotlangConverter.TokenDefinitions
 {
-
     public interface IToken
     {
         uint GetTokenID();

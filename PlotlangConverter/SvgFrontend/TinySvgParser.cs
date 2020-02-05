@@ -1,5 +1,7 @@
 ﻿using PlotlangConverter.TokenDefinitions;
 using System;
+using System.Collections.Generic;
+using System.Collections;
 using System.Text.Json;
 
 namespace PlotlangConverter.SvgFrontend
@@ -23,6 +25,16 @@ namespace PlotlangConverter.SvgFrontend
         {
             SerialisationObject serialisation = new SerialisationObject(token.GetTokenID(), token.GetParams());
             string json = JsonSerializer.Serialize(serialisation);
+
+            IList<int> vs = new List<int>(  new int[] { 1,2,3,4,5} );
+            Console.WriteLine(JsonSerializer.Serialize(vs));
+
+            
+
+            Dictionary<string, int[]> dic = new Dictionary<string, int[]>();
+            dic.Add(token.GetTokenID().ToString(),new int[3] { 123,456,789});
+            Console.WriteLine(JsonSerializer.Serialize(dic));
+
         }
     }
 }
