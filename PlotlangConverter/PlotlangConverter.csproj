@@ -82,6 +82,7 @@
     <Compile Include="HpglBackend\HpglBackendFaçade.cs" />
     <Compile Include="HpglBackend\IHpglToken.cs" />
     <Compile Include="IOHelper.cs" />
+    <Compile Include="JsonTool\JsonWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SvgFrontend\TinySvgFrontendFaçade.cs" />
@@ -107,9 +108,7 @@
     <Analyzer Include="packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="JsonTools\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

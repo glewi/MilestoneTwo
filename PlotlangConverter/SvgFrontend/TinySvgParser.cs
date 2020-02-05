@@ -6,11 +6,23 @@ namespace PlotlangConverter.SvgFrontend
 {
     static class TinySvgParser
     {   
+        public class SerialisationObject
+        {
+            public UInt16 TokenID { get; set; }
+            object[] args { get; set; }
+
+            public SerialisationObject(uint TokenID, params object[] vs)
+            {
+                this.TokenID = (UInt16)TokenID;
+                args = new object[vs.Length];
+                args = vs;
+            }
+        }
+
         public static void Parse(IToken token)
         {
-            Tuple<uint, object[]> tuple = new Tuple<uint, object[]>(token.GetTokenID(), token.GetParams());
-            Console.WriteLine(tuple.ToString());
-            Console.WriteLine(JsonSerializer.Serialize(tuple));
+            SerialisationObject serialisation = new SerialisationObject(token.GetTokenID(), token.GetParams());
+            string json = JsonSerializer.Serialize(serialisation);
         }
     }
 }
