@@ -82,6 +82,7 @@
     <Compile Include="HpglBackend\HpglBackendFaçade.cs" />
     <Compile Include="HpglBackend\IHpglToken.cs" />
     <Compile Include="IOHelper.cs" />
+    <Compile Include="JsonTool\CustomJsonWriter.cs" />
     <Compile Include="JsonTool\JsonWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
