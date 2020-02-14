@@ -21,7 +21,7 @@ namespace PlotlangConverter.SvgFrontend
             {
                 Console.WriteLine(element.Name.LocalName);
                 XAttribute[] attributes = element.Attributes().ToArray();
-                object[] vs = new object[attributes.Length];
+                int[] vs = new int[attributes.Length];
 
                 for (int i = 0; i < attributes.Length; i++)
                 {

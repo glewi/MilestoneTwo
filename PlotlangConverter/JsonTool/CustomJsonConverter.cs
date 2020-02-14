@@ -49,7 +49,9 @@ namespace PlotlangConverter.JsonTool
         public override void Write(
           Utf8JsonWriter writer,
           object objectToWrite,
-          JsonSerializerOptions options) =>
-              throw new InvalidOperationException("Should not get here.");
+          JsonSerializerOptions options)
+        {
+            //if ()
+        }
     }
 }

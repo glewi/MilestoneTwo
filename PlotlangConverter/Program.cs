@@ -4,7 +4,7 @@ namespace PlotlangConverter
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             try
             {
@@ -23,9 +23,11 @@ namespace PlotlangConverter
             catch (ArgumentException e)
             {
                 Console.WriteLine(e.Message);
+                return 1;
             }
-
             Console.ReadKey();
+            
+            return 0;
         }
     }
 }

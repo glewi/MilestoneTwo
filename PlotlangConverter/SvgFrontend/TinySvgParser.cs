@@ -8,17 +8,24 @@ namespace PlotlangConverter.SvgFrontend
 {
     static class TinySvgParser
     {
+        public class Wrapper
+        {
+            public UInt16 id { get; set; }
+            public Dictionary<string, int> keyValuePairs { get; set; }
+
+            public Wrapper(UInt16 id, Dictionary<string, int> keys)
+            {
+                this.id = id;
+                this.keyValuePairs = keys;
+            }
+        }
+
         public static void Parse(IToken token)
         {
-            Dictionary<string, int[]> dic = new Dictionary<string, int[]>();
-            dic.Add(token.GetTokenID().ToString(),new int[3] { 123,456,789});
-            Console.WriteLine(JsonSerializer.Serialize(dic));
+            Wrapper wrapper = new Wrapper(token.GetID(), token.GetNamedParams());
+            var Json = JsonSerializer.Serialize(wrapper);
 
-            foreach (object arg in token.GetParams())
-            {
-                Console.WriteLine(arg.ToString());
-            }
-
+            throw new NotImplementedException();
         }
     }
 }

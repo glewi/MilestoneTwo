@@ -11,7 +11,7 @@ namespace PlotlangConverter
             Rectangle
         }
 
-        public IToken CreateToken(string identifier, params object[] vs)
+        public IToken CreateToken(string identifier, params int[] vs)
         {
             switch (identifier)
             {
@@ -24,7 +24,7 @@ namespace PlotlangConverter
             }
         }
 
-        public IToken CreateToken(uint identifier, params object[] vs)
+        public IToken CreateToken(uint identifier, params int[] vs)
         {
             switch (identifier)
             {

@@ -1,93 +1,100 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PlotlangConverter.TokenDefinitions
 {
     public interface IToken
     {
-        uint GetTokenID();
-        object[] GetParams();
-        void SetParams(params object[] vs);
+        UInt16 GetID();
+        Dictionary<string, int> GetNamedParams();
+        int[] GetParams();
+        void SetParams(params int[] parameters);
     }
 
     public class RectangleToken : IToken
     {
-        // Use this for JSON serialisation/deserialisation as a conesquence of
-        // polymorphic support not being present in System.Text.Json.
-        private const UInt16 TokenID = 0;
-
+        UInt16 tokenID = 0;
+        
         // XY coords for the bottom left corner of the rectangle.
-        Tuple<int, int> xy { get; set; }
-
+        private int x, y;
+        
         // XY values for rounded rectangles. 
-        Tuple<uint, uint> rxy { get; set; }
-
+        private uint rx, ry;
+        
         // Rectangle width and height dimensions
-        Tuple<uint, uint> widthheight { get; set; }
+        private uint width, height;
 
-        public RectangleToken(params object[] vs)
+        public RectangleToken(params int[] vs)
+        {
+            (x, y) = (vs[0], vs[1]);
+            (rx, ry) = (Convert.ToUInt32(vs[2]), Convert.ToUInt32(vs[3]));
+            (width, height) = (Convert.ToUInt32(vs[4]), Convert.ToUInt32(vs[5]));
+        }
+
+        public Dictionary<string,int> GetNamedParams()
+        {
+            Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();
+
+            keyValuePairs.Add("x", x);
+            keyValuePairs.Add("y", y);
+
+            keyValuePairs.Add("rx", Convert.ToInt32(rx));
+            keyValuePairs.Add("yx", Convert.ToInt32(ry));
+
+            keyValuePairs.Add("width", Convert.ToInt32(width));
+            keyValuePairs.Add("height", Convert.ToInt32(height));
+
+            return keyValuePairs;
+        }
+        
+        public UInt16 GetID()
+        {
+            return tokenID;
+        }
+
+        public int[] GetParams()
+        {
+            return new int[] { x, y, 
+                checked(Convert.ToInt32(rx)), 
+                checked(Convert.ToInt32(ry)), 
+                checked(Convert.ToInt32(width)), 
+                checked(Convert.ToInt32(height)) 
+            };
+        }
+
+        public void SetParams(params int[] vs)
         {
             (int x, int y) = ((int)vs[0], (int)vs[1]);
             (uint rx, uint ry) = (Convert.ToUInt32(vs[2]), Convert.ToUInt32(vs[3]));
             (uint width, uint height) = (Convert.ToUInt32(vs[4]), Convert.ToUInt32(vs[5]));
-
-            xy = new Tuple<int, int>(x, y);
-            rxy = new Tuple<uint, uint>(rx, ry);
-            widthheight = new Tuple<uint, uint>(width, height);
-        }
-
-        public uint GetTokenID()
-        {
-            return TokenID;
-        }
-
-        public object[] GetParams()
-        {
-            xy.Deconstruct(out int x, out int y);
-            rxy.Deconstruct(out uint rx, out uint ry);
-            widthheight.Deconstruct(out uint width, out uint height);
-
-            return new object[] { x, y, rx, ry, width, height };
-        }
-
-        public void SetParams(params object[] vs)
-        {
-            (int x, int y) = ((int)vs[0], (int)vs[1]);
-            (uint rx, uint ry) = (Convert.ToUInt32(vs[2]), Convert.ToUInt32(vs[3]));
-            (uint width, uint height) = (Convert.ToUInt32(vs[4]), Convert.ToUInt32(vs[5]));
-
-            xy = new Tuple<int, int>(x, y);
-            rxy = new Tuple<uint, uint>(rx, ry);
-            widthheight = new Tuple<uint, uint>(width, height);
         }
     }
 
     public class CircleToken : IToken
     {
-        // Use this for JSON serialisation/deserialisation as a conesquence of
-        // polymorphic support not being present in System.Text.Json.
-        private const UInt16 TokenID = 1;
-
+        UInt16 tokenID = 1;
+        
         // XY coords for the center of the circle.
         Tuple<int, int> xy { get; set; }
 
         // Circle radius.
         uint r { get; set; } = 0;
 
-        public CircleToken(params object[] vs)
+        public CircleToken(params int[] vs)
         {
             (int x, int y) = ((int)vs[0], (int)vs[1]);
             uint r = Convert.ToUInt32(vs[0]);
         }
 
-        public object[] GetParams()
+        public int[] GetParams()
         {
             xy.Deconstruct(out int x, out int y);
             uint r = this.r;
 
-            return new object[] { x, y, r };
+            return new int[] { x, y};
         }
 
-        public void SetParams(params object[] vs)
+        public void SetParams(params int[] vs)
         {
             (int x, int y) = ((int)vs[0], (int)vs[1]);
             uint r = Convert.ToUInt32(vs[2]);
@@ -96,9 +103,16 @@ namespace PlotlangConverter.TokenDefinitions
             this.r = r;
         }
 
-        public uint GetTokenID()
+        public Dictionary<string, int> GetNamedParams()
         {
-            return TokenID;
+            Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();
+
+            return keyValuePairs;
+        }
+
+        public UInt16 GetID()
+        {
+            return tokenID;
         }
     }
 }
