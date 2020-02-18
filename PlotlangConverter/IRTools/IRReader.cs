@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlotlangConverter.JsonTool
+namespace PlotlangConverter.IRTools
 {
-    class JsonWriter
+    class IRReader
     {
     }
 }

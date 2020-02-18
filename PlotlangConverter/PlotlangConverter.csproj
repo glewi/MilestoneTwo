@@ -82,8 +82,8 @@
     <Compile Include="HpglBackend\HpglBackendFaçade.cs" />
     <Compile Include="HpglBackend\IHpglToken.cs" />
     <Compile Include="IOHelper.cs" />
-    <Compile Include="JsonTool\CustomJsonConverter.cs" />
-    <Compile Include="JsonTool\JsonWriter.cs" />
+    <Compile Include="IRTools\IRReader.cs" />
+    <Compile Include="IRTools\IRWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SvgFrontend\TinySvgFrontendFaçade.cs" />
