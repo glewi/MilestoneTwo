@@ -1,8 +1,6 @@
 ﻿using PlotlangConverter.TokenDefinitions;
-using PlotlangConverter.IRTools;
 using System;
 using System.Collections.Generic;
-using System.Collections;
 
 using System.Text.Json;
 
@@ -13,12 +11,12 @@ namespace PlotlangConverter.SvgFrontend
         public class Wrapper
         {
             public UInt16 id { get; set; }
-            public Dictionary<string, int> keyValuePairs { get; set; }
+            public Dictionary<string, int> keys { get; set; }
 
             public Wrapper(UInt16 id, Dictionary<string, int> keys)
             {
                 this.id = id;
-                this.keyValuePairs = keys;
+                this.keys = keys;
             }
         }
 
@@ -31,7 +29,7 @@ namespace PlotlangConverter.SvgFrontend
                 WriteIndented = true
             };
 
-            var Json = JsonSerializer.Serialize(wrapper,options);
+            var Json = JsonSerializer.Serialize(wrapper, options);
 
             IRTools.IRWriter.Write(Json, @"test.txt");
 

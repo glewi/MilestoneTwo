@@ -26,7 +26,7 @@ namespace PlotlangConverter
                 return 1;
             }
             Console.ReadKey();
-            
+
             return 0;
         }
     }

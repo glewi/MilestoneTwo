@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PlotlangConverter.HpglBackend
+﻿namespace PlotlangConverter.HpglBackend
 {
     interface IHpglToken
     {
@@ -17,7 +11,7 @@ namespace PlotlangConverter.HpglBackend
         {
 
         }
-        
+
         public string GetCommand()
         {
             string cmd = "";

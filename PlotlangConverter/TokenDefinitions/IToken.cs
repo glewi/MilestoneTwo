@@ -14,13 +14,13 @@ namespace PlotlangConverter.TokenDefinitions
     public class RectangleToken : IToken
     {
         UInt16 tokenID = 0;
-        
+
         // XY coords for the bottom left corner of the rectangle.
         private int x, y;
-        
+
         // XY values for rounded rectangles. 
         private uint rx, ry;
-        
+
         // Rectangle width and height dimensions
         private uint width, height;
 
@@ -31,7 +31,7 @@ namespace PlotlangConverter.TokenDefinitions
             (width, height) = (Convert.ToUInt32(vs[4]), Convert.ToUInt32(vs[5]));
         }
 
-        public Dictionary<string,int> GetNamedParams()
+        public Dictionary<string, int> GetNamedParams()
         {
             Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();
 
@@ -46,7 +46,7 @@ namespace PlotlangConverter.TokenDefinitions
 
             return keyValuePairs;
         }
-        
+
         public UInt16 GetID()
         {
             return tokenID;
@@ -54,11 +54,11 @@ namespace PlotlangConverter.TokenDefinitions
 
         public int[] GetParams()
         {
-            return new int[] { x, y, 
-                checked(Convert.ToInt32(rx)), 
-                checked(Convert.ToInt32(ry)), 
-                checked(Convert.ToInt32(width)), 
-                checked(Convert.ToInt32(height)) 
+            return new int[] { x, y,
+                checked(Convert.ToInt32(rx)),
+                checked(Convert.ToInt32(ry)),
+                checked(Convert.ToInt32(width)),
+                checked(Convert.ToInt32(height))
             };
         }
 
@@ -73,7 +73,7 @@ namespace PlotlangConverter.TokenDefinitions
     public class CircleToken : IToken
     {
         UInt16 tokenID = 1;
-        
+
         // XY coords for the center of the circle.
         Tuple<int, int> xy { get; set; }
 
@@ -91,7 +91,7 @@ namespace PlotlangConverter.TokenDefinitions
             xy.Deconstruct(out int x, out int y);
             uint r = this.r;
 
-            return new int[] { x, y};
+            return new int[] { x, y };
         }
 
         public void SetParams(params int[] vs)
