@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="CompilerFaçade.cs" />
     <Compile Include="HpglBackend\HpglBackendFaçade.cs" />
+    <Compile Include="HpglBackend\HpglTokenFactory.cs" />
     <Compile Include="HpglBackend\IHpglToken.cs" />
     <Compile Include="IRTools\IRReader.cs" />
     <Compile Include="IRTools\IRWriter.cs" />

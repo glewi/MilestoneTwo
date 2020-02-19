@@ -13,7 +13,7 @@ namespace PlotlangConverter.TokenDefinitions
 
     public class RectangleToken : IToken
     {
-        UInt16 tokenID = 0;
+        UInt16 tokenID = 2;
 
         // XY coords for the bottom left corner of the rectangle.
         private int x, y;
@@ -33,18 +33,18 @@ namespace PlotlangConverter.TokenDefinitions
 
         public Dictionary<string, int> GetNamedParams()
         {
-            Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();
+            Dictionary<string, int> tokenInformation = new Dictionary<string, int>();
 
-            keyValuePairs.Add("x", x);
-            keyValuePairs.Add("y", y);
+            tokenInformation.Add("x", x);
+            tokenInformation.Add("y", y);
 
-            keyValuePairs.Add("rx", Convert.ToInt32(rx));
-            keyValuePairs.Add("yx", Convert.ToInt32(ry));
+            tokenInformation.Add("rx", Convert.ToInt32(rx));
+            tokenInformation.Add("yx", Convert.ToInt32(ry));
 
-            keyValuePairs.Add("width", Convert.ToInt32(width));
-            keyValuePairs.Add("height", Convert.ToInt32(height));
+            tokenInformation.Add("width", Convert.ToInt32(width));
+            tokenInformation.Add("height", Convert.ToInt32(height));
 
-            return keyValuePairs;
+            return tokenInformation;
         }
 
         public UInt16 GetID()

@@ -7,8 +7,8 @@ namespace PlotlangConverter
     {
         private enum TokenTypes
         {
-            Circle,
-            Rectangle
+            Circle = 1,
+            Rectangle = 2
         }
 
         public IToken CreateToken(string identifier, params int[] vs)
