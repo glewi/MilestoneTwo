@@ -82,6 +82,7 @@
     <Compile Include="HpglBackend\HpglBackendFaçade.cs" />
     <Compile Include="HpglBackend\HpglTokenFactory.cs" />
     <Compile Include="HpglBackend\TokenDefinitions\HpglCircle.cs" />
+    <Compile Include="HpglBackend\TokenDefinitions\HpglLine.cs" />
     <Compile Include="HpglBackend\TokenDefinitions\HpglRectangle.cs" />
     <Compile Include="HpglBackend\TokenDefinitions\IHpglToken.cs" />
     <Compile Include="IRTools\IRReader.cs" />
@@ -125,6 +126,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\IR.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

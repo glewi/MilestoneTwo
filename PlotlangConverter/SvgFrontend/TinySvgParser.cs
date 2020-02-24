@@ -8,6 +8,8 @@ namespace PlotlangConverter.SvgFrontend
 {
     static class TinySvgParser
     {
+        private const string path = @"IR.json";
+        
         /// <summary>
         /// A workaround wrapper class for serialising JSON.
         /// </summary>
@@ -38,8 +40,8 @@ namespace PlotlangConverter.SvgFrontend
             foreach (IToken token in tokens)
             {
                 wrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
-                Json = JsonSerializer.Serialize(wrapper, options);
-                IRWriter.Write(Json, @"IR.txt");
+                Json = JsonSerializer.Serialize(wrapper, options) + "\n";
+                IRWriter.Write(Json, path);
             }
         }
         
@@ -52,9 +54,9 @@ namespace PlotlangConverter.SvgFrontend
                 WriteIndented = true
             };
 
-            var Json = JsonSerializer.Serialize(wrapper, options);
+            var Json = JsonSerializer.Serialize(wrapper, options) + "\n";
 
-            IRWriter.Write(Json, @"IR.txt");
+            IRWriter.Write(Json, path);
         }
     }
 }
