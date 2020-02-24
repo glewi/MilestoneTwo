@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PlotlangConverter.TokenDefinitions
+namespace PlotlangConverter.SvgFrontend.TokenDefinitions
 {
-    public interface IToken
-    {
-        UInt16 GetID();
-        Dictionary<string, int> GetNamedParams();
-        int[] GetParams();
-        void SetParams(params int[] parameters);
-    }
-
-    public class RectangleToken : IToken
+    public class SvgRectangle : IToken
     {
         UInt16 tokenID = 2;
 
@@ -24,7 +16,7 @@ namespace PlotlangConverter.TokenDefinitions
         // Rectangle width and height dimensions
         private uint width, height;
 
-        public RectangleToken(params int[] vs)
+        public SvgRectangle(params int[] vs)
         {
             (x, y) = (vs[0], vs[1]);
             (rx, ry) = (Convert.ToUInt32(vs[2]), Convert.ToUInt32(vs[3]));
@@ -67,52 +59,6 @@ namespace PlotlangConverter.TokenDefinitions
             (int x, int y) = ((int)vs[0], (int)vs[1]);
             (uint rx, uint ry) = (Convert.ToUInt32(vs[2]), Convert.ToUInt32(vs[3]));
             (uint width, uint height) = (Convert.ToUInt32(vs[4]), Convert.ToUInt32(vs[5]));
-        }
-    }
-
-    public class CircleToken : IToken
-    {
-        UInt16 tokenID = 1;
-
-        // XY coords for the center of the circle.
-        Tuple<int, int> xy { get; set; }
-
-        // Circle radius.
-        uint r { get; set; } = 0;
-
-        public CircleToken(params int[] vs)
-        {
-            (int x, int y) = ((int)vs[0], (int)vs[1]);
-            uint r = Convert.ToUInt32(vs[0]);
-        }
-
-        public int[] GetParams()
-        {
-            xy.Deconstruct(out int x, out int y);
-            uint r = this.r;
-
-            return new int[] { x, y };
-        }
-
-        public void SetParams(params int[] vs)
-        {
-            (int x, int y) = ((int)vs[0], (int)vs[1]);
-            uint r = Convert.ToUInt32(vs[2]);
-
-            xy = new Tuple<int, int>(x, y);
-            this.r = r;
-        }
-
-        public Dictionary<string, int> GetNamedParams()
-        {
-            Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();
-
-            return keyValuePairs;
-        }
-
-        public UInt16 GetID()
-        {
-            return tokenID;
         }
     }
 }

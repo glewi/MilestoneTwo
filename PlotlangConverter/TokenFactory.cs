@@ -1,5 +1,6 @@
-﻿using PlotlangConverter.TokenDefinitions;
-using System;
+﻿using System;
+
+using PlotlangConverter.SvgFrontend.TokenDefinitions;
 
 namespace PlotlangConverter
 {
@@ -16,9 +17,9 @@ namespace PlotlangConverter
             switch (identifier)
             {
                 case "circle":
-                    return new CircleToken(vs);
+                    return new SvgCircle(vs);
                 case "rect":
-                    return new RectangleToken(vs);
+                    return new SvgRectangle(vs);
                 default:
                     throw new NotImplementedException();
             }
@@ -29,9 +30,9 @@ namespace PlotlangConverter
             switch (identifier)
             {
                 case (uint)TokenTypes.Circle:
-                    return new CircleToken(vs);
+                    return new SvgCircle(vs);
                 case (uint)TokenTypes.Rectangle:
-                    return new RectangleToken(vs);
+                    return new SvgRectangle(vs);
                 default:
                     throw new NotImplementedException();
             }

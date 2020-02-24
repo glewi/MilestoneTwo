@@ -1,4 +1,4 @@
-﻿using PlotlangConverter.TokenDefinitions;
+﻿using PlotlangConverter.SvgFrontend.TokenDefinitions;
 using System;
 using System.Collections.Generic;
 
