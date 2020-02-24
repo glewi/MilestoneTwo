@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PlotlangConverter.HpglBackend.TokenDefinitions;
+﻿using PlotlangConverter.HpglBackend.TokenDefinitions;
+using System;
 
 namespace PlotlangConverter.HpglBackend
 {
@@ -17,7 +13,7 @@ namespace PlotlangConverter.HpglBackend
 
         public IHpglToken CreateToken(string identifier, params int[] vs)
         {
-            switch(identifier)
+            switch (identifier)
             {
                 case "circle":
                     return new HpglCircle();

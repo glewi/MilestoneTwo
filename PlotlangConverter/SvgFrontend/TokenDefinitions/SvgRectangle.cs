@@ -5,7 +5,7 @@ namespace PlotlangConverter.SvgFrontend.TokenDefinitions
 {
     public class SvgRectangle : IToken
     {
-        UInt16 tokenID = 2;
+        readonly byte tokenID = 2;
 
         // XY coords for the bottom left corner of the rectangle.
         private int x, y;
@@ -39,7 +39,7 @@ namespace PlotlangConverter.SvgFrontend.TokenDefinitions
             return tokenInformation;
         }
 
-        public UInt16 GetID()
+        public byte GetID()
         {
             return tokenID;
         }

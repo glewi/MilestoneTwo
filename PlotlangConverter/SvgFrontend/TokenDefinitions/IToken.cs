@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace PlotlangConverter.SvgFrontend.TokenDefinitions
 {
     public interface IToken
     {
-        UInt16 GetID();
+        byte GetID();
         Dictionary<string, int> GetNamedParams();
         int[] GetParams();
         void SetParams(params int[] parameters);

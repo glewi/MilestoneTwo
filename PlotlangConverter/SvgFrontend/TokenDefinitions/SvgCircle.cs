@@ -5,7 +5,7 @@ namespace PlotlangConverter.SvgFrontend.TokenDefinitions
 {
     public class SvgCircle : IToken
     {
-        UInt16 tokenID = 1;
+        readonly byte tokenID = 1;
 
         // XY coords for the center of the circle.
         Tuple<int, int> xy { get; set; }
@@ -43,7 +43,7 @@ namespace PlotlangConverter.SvgFrontend.TokenDefinitions
             return keyValuePairs;
         }
 
-        public UInt16 GetID()
+        public byte GetID()
         {
             return tokenID;
         }
