@@ -17,16 +17,15 @@ namespace PlotlangConverter
                 }
                 else
                 {
-                    throw new ArgumentException("Argument exception");
+                    throw new ArgumentException(
+                        Properties.Resources.ArgumentExceptionString);
                 }
             }
-            catch (ArgumentException e)
+            catch (ArgumentException exception)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(exception.Message);
                 return 1;
             }
-            Console.ReadKey();
-
             return 0;
         }
     }

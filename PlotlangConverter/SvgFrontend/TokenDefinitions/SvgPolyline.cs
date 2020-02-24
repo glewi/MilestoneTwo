@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PlotlangConverter.SvgFrontend.TokenDefinitions
 {
-    class SvgPolyline
+    public class SvgPolyline
     {
+        private SvgLine[] lines;
     }
 }
