@@ -9,12 +9,21 @@ namespace PlotlangConverter.SvgFrontend
     {
         private static TokenFactory factory = new TokenFactory();
 
-
+        /// <summary>
+        /// Lex an individual <c>XElement</c>.
+        /// </summary>
+        /// <param name="element">
+        /// An XElement retreived from LINQ.
+        /// </param>
+        /// <returns>
+        /// An IToken implementation of the passed element.
+        /// </returns>
         public static IToken Lex(XElement element)
         {
             XAttribute[] attributes = element.Attributes().ToArray();
             int[] vs = new int[attributes.Length];
 
+            
             for (int i = 0; i < attributes.Length; i++)
             {
                 vs[i] = int.Parse(attributes[i].Value);
@@ -22,9 +31,17 @@ namespace PlotlangConverter.SvgFrontend
 
             IToken token = factory.CreateToken(element.Name.LocalName, vs);
             return token;
-
         }
 
+        /// <summary>
+        /// Lex an array of XElements.
+        /// </summary>
+        /// <param name="elements">
+        /// An array of XElement retreived from LINQ.
+        /// </param>
+        /// <returns>
+        /// An IToken array of the passed XElement array.
+        /// </returns>
         public static IToken[] Lex(XElement[] elements)
         {
             IToken[] tokens = new IToken[elements.Length];
