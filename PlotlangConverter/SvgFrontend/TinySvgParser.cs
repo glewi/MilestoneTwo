@@ -10,28 +10,42 @@ namespace PlotlangConverter.SvgFrontend
     {
         /// <summary>
         /// A workaround wrapper class for serialising JSON.
-        /// <remarks>
-        /// JSON cannot support polymorphic serialisation by default without creating large custom converters.  
-        /// This class is a workaround for serialising the IToken interface without having to specify the IToken type.
-        /// </remarks>
         /// </summary>
-        public class Wrapper
+        public class SerialiseObject
         {
             public byte tokenID { get; set; }
             public Dictionary<string, int> attributes { get; set; }
             public Dictionary<string, int> optionalAttributes { get; set; }
             public Dictionary<string, string> styleAttributes { get; set; }
 
-            public Wrapper(byte tokenID, Dictionary<string, int> attributes)
+            public SerialiseObject(byte tokenID, Dictionary<string, int> attributes)
             {
                 this.tokenID = tokenID;
                 this.attributes = attributes;
             }
         }
 
+        public static void Parse(IToken[] tokens)
+        {
+            SerialiseObject wrapper;
+            string Json;
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+
+            foreach (IToken token in tokens)
+            {
+                wrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
+                Json = JsonSerializer.Serialize(wrapper, options);
+                IRWriter.Write(Json, @"IR.txt");
+            }
+        }
+        
         public static void Parse(IToken token)
         {
-            Wrapper wrapper = new Wrapper(token.GetID(), token.GetNamedParams());
+            SerialiseObject wrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
 
             JsonSerializerOptions options = new JsonSerializerOptions
             {
@@ -40,7 +54,7 @@ namespace PlotlangConverter.SvgFrontend
 
             var Json = JsonSerializer.Serialize(wrapper, options);
 
-            IRWriter.Write(Json, @"test.txt");
+            IRWriter.Write(Json, @"IR.txt");
         }
     }
 }

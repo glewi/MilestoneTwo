@@ -94,6 +94,9 @@
     <Compile Include="SvgFrontend\TinySvgReader.cs" />
     <Compile Include="SvgFrontend\TokenDefinitions\SvgCircle.cs" />
     <Compile Include="SvgFrontend\TokenDefinitions\IToken.cs" />
+    <Compile Include="SvgFrontend\TokenDefinitions\SvgLine.cs" />
+    <Compile Include="SvgFrontend\TokenDefinitions\SvgPolygon.cs" />
+    <Compile Include="SvgFrontend\TokenDefinitions\SvgPolyline.cs" />
     <Compile Include="SvgFrontend\TokenDefinitions\SvgRectangle.cs" />
     <Compile Include="TokenFactory.cs" />
   </ItemGroup>

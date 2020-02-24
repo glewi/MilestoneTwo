@@ -12,37 +12,39 @@ namespace PlotlangConverter.SvgFrontend
 
         public static IToken Lex(XElement element)
         {
-            throw new NotImplementedException();
+            XAttribute[] attributes = element.Attributes().ToArray();
+            int[] vs = new int[attributes.Length];
+
+            for (int i = 0; i < attributes.Length; i++)
+            {
+                vs[i] = int.Parse(attributes[i].Value);
+            }
+
+            IToken token = factory.CreateToken(element.Name.LocalName, vs);
+            return token;
+
         }
 
-        public static IToken Lex(XElement[] prog)
+        public static IToken[] Lex(XElement[] elements)
         {
-            foreach (XElement element in prog)
+            IToken[] tokens = new IToken[elements.Length];
+
+            for (int i = 0; i < elements.Length; i++)
             {
+                XElement element = elements[i];
                 Console.WriteLine(element.Name.LocalName);
                 XAttribute[] attributes = element.Attributes().ToArray();
                 int[] vs = new int[attributes.Length];
 
-                for (int i = 0; i < attributes.Length; i++)
+                for (int j = 0; j < attributes.Length; j++)
                 {
-                    vs[i] = int.Parse(attributes[i].Value);
+                    vs[j] = int.Parse(attributes[j].Value);
                 }
 
-
-                var obj = factory.CreateToken(element.Name.LocalName, vs);
-                TinySvgParser.Parse(obj);
+                tokens[i] = factory.CreateToken(element.Name.LocalName, vs);
             }
 
-            // TESTING PURPOSES, REMOVE LATER
-            //var rectobj = new RectangleToken(new object[] { 0,0,0,0,0,0 });
-            //rectobj.setParams(new object[] { 5,10,15,20,25,30 });
-            //object[] a = rectobj.getParams();
-
-            //var circleobj = new CircleToken(new object[] { 0, 0, 0 });
-            //circleobj.setParams(new object[] { 10, 20, 30 });
-            //object[] b = circleobj.getParams();
-
-            throw new NotImplementedException();
+            return tokens;
         }
     }
 }
