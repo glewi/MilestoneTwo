@@ -6,10 +6,14 @@ namespace PlotlangConverter.IRTools
     {
         public static void Write(string prog, string @path)
         {
-            StreamWriter writer = new StreamWriter(@path);
-            writer.Write(prog);
-            writer.Close();
+            if (!File.Exists(@path))
+            {
+                File.WriteAllText(path, prog);
+            }
+            else
+            {
+                File.AppendAllText(path, prog);
+            }
         }
-
     }
 }

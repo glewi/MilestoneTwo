@@ -8,15 +8,24 @@ namespace PlotlangConverter.SvgFrontend
 {
     static class TinySvgParser
     {
+        /// <summary>
+        /// A workaround wrapper class for serialising JSON.
+        /// <remarks>
+        /// JSON cannot support polymorphic serialisation by default without creating large custom converters.  
+        /// This class is a workaround for serialising the IToken interface without having to specify the IToken type.
+        /// </remarks>
+        /// </summary>
         public class Wrapper
         {
-            public byte id { get; set; }
-            public Dictionary<string, int> keys { get; set; }
+            public byte tokenID { get; set; }
+            public Dictionary<string, int> attributes { get; set; }
+            public Dictionary<string, int> optionalAttributes { get; set; }
+            public Dictionary<string, string> styleAttributes { get; set; }
 
-            public Wrapper(byte id, Dictionary<string, int> keys)
+            public Wrapper(byte tokenID, Dictionary<string, int> attributes)
             {
-                this.id = id;
-                this.keys = keys;
+                this.tokenID = tokenID;
+                this.attributes = attributes;
             }
         }
 
