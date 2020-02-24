@@ -9,6 +9,7 @@ namespace PlotlangConverter.SvgFrontend
     static class TinySvgParser
     {
         private const string path = @"IR.json";
+       
         
         /// <summary>
         /// A workaround wrapper class for serialising JSON.
