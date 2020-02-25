@@ -78,13 +78,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackendSubsystem\IBackend.cs" />
     <Compile Include="CompilerFaçade.cs" />
-    <Compile Include="HpglBackend\HpglBackendFaçade.cs" />
-    <Compile Include="HpglBackend\HpglTokenFactory.cs" />
-    <Compile Include="HpglBackend\TokenDefinitions\HpglCircle.cs" />
-    <Compile Include="HpglBackend\TokenDefinitions\HpglLine.cs" />
-    <Compile Include="HpglBackend\TokenDefinitions\HpglRectangle.cs" />
-    <Compile Include="HpglBackend\TokenDefinitions\IHpglToken.cs" />
+    <Compile Include="BackendSubsystem\HpglBackend\HpglBackendFaçade.cs" />
+    <Compile Include="BackendSubsystem\HpglBackend\HpglTokenFactory.cs" />
+    <Compile Include="BackendSubsystem\HpglBackend\TokenDefinitions\HpglCircle.cs" />
+    <Compile Include="BackendSubsystem\HpglBackend\TokenDefinitions\HpglLine.cs" />
+    <Compile Include="BackendSubsystem\HpglBackend\TokenDefinitions\HpglRectangle.cs" />
+    <Compile Include="BackendSubsystem\HpglBackend\TokenDefinitions\IHpglToken.cs" />
+    <Compile Include="FrontendSubsystems\IFrontend.cs" />
     <Compile Include="IRTools\IRReader.cs" />
     <Compile Include="IRTools\IRWriter.cs" />
     <Compile Include="Program.cs" />
@@ -94,16 +96,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SvgFrontend\TinySvgFrontendFaçade.cs" />
-    <Compile Include="SvgFrontend\TinySvgLexer.cs" />
-    <Compile Include="SvgFrontend\TinySvgParser.cs" />
-    <Compile Include="SvgFrontend\TinySvgReader.cs" />
-    <Compile Include="SvgFrontend\TokenDefinitions\SvgCircle.cs" />
-    <Compile Include="SvgFrontend\TokenDefinitions\IToken.cs" />
-    <Compile Include="SvgFrontend\TokenDefinitions\SvgLine.cs" />
-    <Compile Include="SvgFrontend\TokenDefinitions\SvgPolygon.cs" />
-    <Compile Include="SvgFrontend\TokenDefinitions\SvgPolyline.cs" />
-    <Compile Include="SvgFrontend\TokenDefinitions\SvgRectangle.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TinySvgFrontendFaçade.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TinySvgLexer.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TinySvgParser.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TinySvgReader.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TokenDefinitions\SvgCircle.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TokenDefinitions\IToken.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TokenDefinitions\SvgLine.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TokenDefinitions\SvgPolygon.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TokenDefinitions\SvgPolyline.cs" />
+    <Compile Include="FrontendSubsystems\SvgFrontend\TokenDefinitions\SvgRectangle.cs" />
     <Compile Include="TokenFactory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -127,9 +129,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

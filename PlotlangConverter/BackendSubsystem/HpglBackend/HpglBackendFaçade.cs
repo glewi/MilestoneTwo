@@ -3,6 +3,8 @@ namespace PlotlangConverter.HpglBackend
 {
     public class HpglBackendFaçade
     {
-        IRReader.Read();
+        string s = IRReader.Read();
+
+
     }
 }
