@@ -1,6 +1,8 @@
-﻿namespace PlotlangConverter.HpglBackend
+﻿using PlotlangConverter.IRTools;
+namespace PlotlangConverter.HpglBackend
 {
-    class HpglBackendFaçade
+    public class HpglBackendFaçade
     {
+        IRReader.Read();
     }
 }

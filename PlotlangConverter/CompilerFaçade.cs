@@ -1,6 +1,5 @@
 ﻿
 using PlotlangConverter.SvgFrontend;
-using PlotlangConverter.SvgFrontend.TokenDefinitions;
 
 namespace PlotlangConverter
 {

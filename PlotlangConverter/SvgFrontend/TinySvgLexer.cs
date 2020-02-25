@@ -23,7 +23,7 @@ namespace PlotlangConverter.SvgFrontend
             XAttribute[] attributes = element.Attributes().ToArray();
             int[] vs = new int[attributes.Length];
 
-            
+
             for (int i = 0; i < attributes.Length; i++)
             {
                 vs[i] = int.Parse(attributes[i].Value);

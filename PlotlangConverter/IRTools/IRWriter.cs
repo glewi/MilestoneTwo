@@ -15,5 +15,15 @@ namespace PlotlangConverter.IRTools
                 File.AppendAllText(path, prog);
             }
         }
+
+        public static void Write(string[] prog, string @path)
+        {
+            if (!File.Exists(@path))
+            {
+                File.WriteAllLines(path, prog);
+            }
+            File.AppendAllLines(path, prog);
+
+        }
     }
 }

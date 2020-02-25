@@ -1,6 +1,5 @@
 ﻿using PlotlangConverter.IRTools;
 using PlotlangConverter.SvgFrontend.TokenDefinitions;
-using System;
 using System.Collections.Generic;
 using System.Text.Json;
 
@@ -9,8 +8,12 @@ namespace PlotlangConverter.SvgFrontend
     static class TinySvgParser
     {
         private const string path = @"IR.json";
-       
-        
+
+        public class JsonRoot
+        {
+            public SerialiseObject[] tokens { get; set; }
+        }
+
         /// <summary>
         /// A workaround wrapper class for serialising JSON.
         /// </summary>
@@ -30,22 +33,30 @@ namespace PlotlangConverter.SvgFrontend
 
         public static void Parse(IToken[] tokens)
         {
-            SerialiseObject wrapper;
-            string Json;
+            JsonRoot jsonWrapper;
+            SerialiseObject serialiseWrapper;
 
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 WriteIndented = true
             };
 
-            foreach (IToken token in tokens)
+            jsonWrapper = new JsonRoot();
+            jsonWrapper.tokens = new SerialiseObject[tokens.Length];
+
+            for (int i = 0; i < tokens.Length; i++)
             {
-                wrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
-                Json = JsonSerializer.Serialize(wrapper, options) + "\n";
-                IRWriter.Write(Json, path);
+                IToken token = tokens[i];
+                serialiseWrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
+                jsonWrapper.tokens[i] = serialiseWrapper; //JsonSerializer.Serialize(serialiseWrapper, options) + "\n";
+
             }
+
+            var Json = JsonSerializer.Serialize(jsonWrapper, options);
+
+            IRWriter.Write(Json, path);
         }
-        
+
         public static void Parse(IToken token)
         {
             SerialiseObject wrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
@@ -57,7 +68,7 @@ namespace PlotlangConverter.SvgFrontend
 
             var Json = JsonSerializer.Serialize(wrapper, options) + "\n";
 
-            IRWriter.Write(Json, path);
+            //IRWriter.Write(Json, path);
         }
     }
 }
