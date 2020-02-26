@@ -19,6 +19,8 @@ namespace PlotlangConverter
                     return new SvgCircle(vs);
                 case "rect":
                     return new SvgRectangle(vs);
+                case "line":
+                    return new SvgLine(vs);
                 default:
                     throw new NotImplementedException();
             }

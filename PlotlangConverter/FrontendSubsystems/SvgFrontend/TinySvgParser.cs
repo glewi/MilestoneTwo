@@ -53,8 +53,7 @@ namespace PlotlangConverter.SvgFrontend
             }
 
             var Json = JsonSerializer.Serialize(jsonWrapper, options);
-            Console.WriteLine(Json);
-            IRWriter.Write(Json, path);
+            IRWriter.Write(Json, @path);
         }
 
         public static void Parse(IToken token)
@@ -68,7 +67,7 @@ namespace PlotlangConverter.SvgFrontend
 
             var Json = JsonSerializer.Serialize(wrapper, options) + "\n";
 
-            //IRWriter.Write(Json, path);
+            IRWriter.Write(Json, @path);
         }
     }
 }
