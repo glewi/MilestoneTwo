@@ -15,8 +15,8 @@ namespace PlotlangConverter.SvgFrontend.TokenDefinitions
 
         public SvgCircle(params int[] vs)
         {
-            (int x, int y) = ((int)vs[0], (int)vs[1]);
-            uint r = Convert.ToUInt32(vs[0]);
+            (x, y) = (vs[0], vs[1]);
+            r = Convert.ToUInt32(vs[2]);
         }
 
         public Dictionary<string,int> GetNamedParams()
@@ -33,7 +33,7 @@ namespace PlotlangConverter.SvgFrontend.TokenDefinitions
 
         public void SetParams(params int[] vs)
         {
-            (int x, int y) = ((int)vs[0], (int)vs[1]);
+            (int x, int y) = (vs[0], vs[1]);
             uint r = Convert.ToUInt32(vs[2]);
         }
 

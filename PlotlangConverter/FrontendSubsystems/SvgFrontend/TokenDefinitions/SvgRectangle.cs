@@ -56,7 +56,7 @@ namespace PlotlangConverter.SvgFrontend.TokenDefinitions
 
         public void SetParams(params int[] vs)
         {
-            (int x, int y) = ((int)vs[0], (int)vs[1]);
+            (int x, int y) = (vs[0], vs[1]);
             (uint rx, uint ry) = (Convert.ToUInt32(vs[2]), Convert.ToUInt32(vs[3]));
             (uint width, uint height) = (Convert.ToUInt32(vs[4]), Convert.ToUInt32(vs[5]));
         }

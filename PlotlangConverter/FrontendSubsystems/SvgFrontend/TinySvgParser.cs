@@ -2,6 +2,7 @@
 using PlotlangConverter.SvgFrontend.TokenDefinitions;
 using System.Collections.Generic;
 using System.Text.Json;
+using System;
 
 namespace PlotlangConverter.SvgFrontend
 {
@@ -49,11 +50,10 @@ namespace PlotlangConverter.SvgFrontend
                 IToken token = tokens[i];
                 serialiseWrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
                 jsonWrapper.tokenarray[i] = serialiseWrapper; //JsonSerializer.Serialize(serialiseWrapper, options) + "\n";
-
             }
 
             var Json = JsonSerializer.Serialize(jsonWrapper, options);
-
+            Console.WriteLine(Json);
             IRWriter.Write(Json, path);
         }
 
