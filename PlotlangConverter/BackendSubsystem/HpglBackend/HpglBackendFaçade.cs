@@ -1,7 +1,7 @@
 ﻿using PlotlangConverter.IRTools;
-namespace PlotlangConverter.HpglBackend
+namespace PlotlangConverter.BackendSubsystem.HpglBackend
 {
-    public class HpglBackendFaçade
+    public class HpglBackendFaçade : IBackend
     {
         string s = IRReader.Read();
 

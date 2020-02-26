@@ -1,6 +1,7 @@
-﻿namespace PlotlangConverter.SvgFrontend
+﻿
+namespace PlotlangConverter.FrontendSubsystems.SvgFrontend
 {
-    class TinySvgFrontendFaçade
+    public class TinySvgFrontendFaçade : IFrontend
     {
 
 

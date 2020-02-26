@@ -11,7 +11,7 @@ namespace PlotlangConverter.SvgFrontend
 
         public class JsonRoot
         {
-            public SerialiseObject[] tokens { get; set; }
+            public SerialiseObject[] tokenarray { get; set; }
         }
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace PlotlangConverter.SvgFrontend
             };
 
             jsonWrapper = new JsonRoot();
-            jsonWrapper.tokens = new SerialiseObject[tokens.Length];
+            jsonWrapper.tokenarray = new SerialiseObject[tokens.Length];
 
             for (int i = 0; i < tokens.Length; i++)
             {
                 IToken token = tokens[i];
                 serialiseWrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
-                jsonWrapper.tokens[i] = serialiseWrapper; //JsonSerializer.Serialize(serialiseWrapper, options) + "\n";
+                jsonWrapper.tokenarray[i] = serialiseWrapper; //JsonSerializer.Serialize(serialiseWrapper, options) + "\n";
 
             }
 

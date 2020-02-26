@@ -8,13 +8,13 @@ namespace PlotlangConverter.SvgFrontend.TokenDefinitions
         readonly byte tokenID = 2;
 
         // XY coords for the bottom left corner of the rectangle.
-        private int x, y;
+        private int x, y = 0;
 
         // XY values for rounded rectangles. 
-        private uint rx, ry;
+        private uint rx, ry = 0;
 
         // Rectangle width and height dimensions
-        private uint width, height;
+        private uint width, height = 0;
 
         public SvgRectangle(params int[] vs)
         {
