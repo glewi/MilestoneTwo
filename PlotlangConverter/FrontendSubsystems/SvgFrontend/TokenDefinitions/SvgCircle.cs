@@ -21,12 +21,13 @@ namespace PlotlangConverter.SvgFrontend.TokenDefinitions
 
         public Dictionary<string,int> GetNamedParams()
         {
-            Dictionary<string, int> tokenInformation = new Dictionary<string, int>();
+            Dictionary<string, int> tokenInformation = new Dictionary<string, int>
+            {
+                { "x", x },
+                { "y", y },
 
-            tokenInformation.Add("x", x);
-            tokenInformation.Add("y", y);
-
-            tokenInformation.Add("r", Convert.ToInt32(r));
+                { "r", checked(Convert.ToInt32(r)) }
+            };
 
             return tokenInformation;
         }
