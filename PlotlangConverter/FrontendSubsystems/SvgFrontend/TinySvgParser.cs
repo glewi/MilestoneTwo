@@ -4,33 +4,11 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System;
 
-namespace PlotlangConverter.SvgFrontend
+namespace PlotlangConverter.FrontendSubsystems.SvgFrontend
 {
     static class TinySvgParser
     {
         private const string path = @"IR.json";
-
-        public class JsonRoot
-        {
-            public SerialiseObject[] tokenarray { get; set; }
-        }
-
-        /// <summary>
-        /// A workaround wrapper class for serialising JSON.
-        /// </summary>
-        public class SerialiseObject
-        {
-            public byte tokenID { get; set; }
-            public Dictionary<string, int> attributes { get; set; }
-            public Dictionary<string, int> optionalAttributes { get; set; }
-            public Dictionary<string, string> styleAttributes { get; set; }
-
-            public SerialiseObject(byte tokenID, Dictionary<string, int> attributes)
-            {
-                this.tokenID = tokenID;
-                this.attributes = attributes;
-            }
-        }
 
         public static void Parse(IToken[] tokens)
         {
@@ -48,17 +26,19 @@ namespace PlotlangConverter.SvgFrontend
             for (int i = 0; i < tokens.Length; i++)
             {
                 IToken token = tokens[i];
-                serialiseWrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
+                serialiseWrapper = new SerialiseObject();
+                serialiseWrapper.tokenID = token.GetID();
+                serialiseWrapper.attributes = token.GetNamedParams();
                 jsonWrapper.tokenarray[i] = serialiseWrapper; //JsonSerializer.Serialize(serialiseWrapper, options) + "\n";
             }
 
-            var Json = JsonSerializer.Serialize(jsonWrapper, options);
+            var Json = JsonSerializer.Serialize<JsonRoot>(jsonWrapper, options);
             IRWriter.Write(Json, @path);
         }
 
         public static void Parse(IToken token)
         {
-            SerialiseObject wrapper = new SerialiseObject(token.GetID(), token.GetNamedParams());
+            SerialiseObject wrapper = new SerialiseObject();
 
             JsonSerializerOptions options = new JsonSerializerOptions
             {

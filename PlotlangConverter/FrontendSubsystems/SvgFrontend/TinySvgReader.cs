@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Xml.Linq;
 
-namespace PlotlangConverter.SvgFrontend
+namespace PlotlangConverter.FrontendSubsystems.SvgFrontend
 {
     public static class TinySvgReader
     {
